@@ -111,9 +111,9 @@
     }
 
     @include media(phone) {
+      font-size: 0.9125rem;
       text-align: center;
       margin: 0 0 2dvh;
-      font-size: 1rem;
     }
 
     @include media(smallest) {

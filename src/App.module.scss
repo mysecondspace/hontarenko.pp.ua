@@ -17,9 +17,14 @@
   position: relative;
   flex-direction: column;
   transition: filter $animation-duration;
-  min-height: calc(100% - #{$padding * 2});
+  min-height: calc(100% - $padding * 2);
   background: $color-primary;
   padding: $padding;
+
+  @include media(phone) {
+    min-height: calc(100% - $padding * 3);
+    padding-bottom: $padding * 2;
+  }
 
   &.blur {
     filter: blur(3.125rem);
