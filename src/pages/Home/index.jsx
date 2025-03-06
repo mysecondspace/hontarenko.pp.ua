@@ -8,6 +8,10 @@ import { ROUTES } from '../../routes'
 import styles from './styles.module.scss'
 
 export const Home = () => {
+  const openFile = () => {
+    window.open('/Software Engineer, Ihor Hontarenko.pdf')
+  }
+
   return (
     <div className={styles.root}>
       <h1 className={styles.heading}>
@@ -20,13 +24,7 @@ export const Home = () => {
       </h1>
       <h2 className={styles.slogan}>make the web since {SINCE_DATE}</h2>
       <div className={styles.buttons}>
-        <Button
-          href='/public/Software Engineer, Ihor Hontarenko.pdf'
-          rel='nofollow noopener'
-          target='_blank'
-        >
-          Get my CV
-        </Button>
+        <Button onClick={openFile}>Get my CV</Button>
         <Link to={ROUTES.ABOUT} className={styles.link}>
           It's me
         </Link>
