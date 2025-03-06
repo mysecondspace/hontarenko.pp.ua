@@ -1,0 +1,47 @@
+@use './variables' as *;
+
+html {
+  height: 100%;
+  position: relative;
+
+  body,
+  body > div {
+    margin: 0;
+    height: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+    position: relative;
+    font-family: $weight-regular;
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    input,
+    button,
+    textarea {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    header {
+      flex: 0 0 auto;
+    }
+
+    footer {
+      flex: 0 0 auto;
+    }
+
+    article {
+      flex: 1 0 auto;
+    }
+  }
+}

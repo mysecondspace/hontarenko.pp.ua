@@ -1,0 +1,32 @@
+// global variables
+$padding: 2dvh;
+$letter-spacing: 0.075em;
+
+$animation-delay: 3s;
+$animation-delay-fast: calc($animation-delay / 2);
+
+$animation-duration: 2s;
+$animation-duration-slow: $animation-duration * 1.5;
+
+// glitch
+$cyan: #0ff;
+$pink: #f0f;
+
+// colors
+$color-white: #fff;
+$color-primary: rgba(21, 28, 53);
+
+// media queries
+$smallest-viewport: 375px;
+$phone-viewport: 540px;
+$tablet-portrait-viewport: 820px;
+$tablet-landscape-viewport: 1180px;
+$laptop-viewport: 1366px;
+$desktop-viewport: 1920px;
+
+// Glober
+$weight-light: 'Light';
+$weight-regular: 'Regular';
+$weight-semi-bold: 'Semi Bold';
+$weight-bold: 'Bold';
+$weight-x-bold: 'X Bold';

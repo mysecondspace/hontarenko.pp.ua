@@ -1,0 +1,101 @@
+@use 'styles/index' as *;
+
+$animation-delay-slogan: $animation-delay-fast;
+$animation-delay-buttons: $animation-delay-slogan + 0.5s;
+
+.root {
+  z-index: 1;
+  align-self: center;
+  justify-self: center;
+  width: fit-content;
+  text-align: center;
+  display: grid;
+
+  @include media(tablet-landscape) {
+    margin: $padding * 3 0;
+  }
+}
+
+.heading {
+  display: grid;
+  animation: zoom-out $animation-duration-slow forwards;
+}
+
+.text {
+  font-size: 5rem;
+  text-transform: uppercase;
+  animation-fill-mode: forwards;
+  animation-duration: $animation-duration-slow;
+  font-family: $weight-x-bold;
+  color: $color-white;
+
+  @include media(tablet-portrait) {
+    font-family: $weight-bold;
+    font-size: 2.5rem;
+  }
+
+  &:nth-of-type(1) {
+    animation-name: fade-in-left;
+
+    span {
+      @include glitchy-text;
+    }
+  }
+
+  &:nth-of-type(2) {
+    animation-name: fade-in-right;
+
+    span {
+      @include glitchy-text-delayed;
+    }
+  }
+}
+
+.slogan {
+  position: relative;
+  color: $color-white;
+  font-family: $weight-light;
+  animation: fade-in $animation-duration-slow $animation-delay-slogan forwards;
+  padding-top: 7.5dvh;
+  font-size: 2rem;
+  opacity: 0;
+
+  @include media(tablet-portrait) {
+    font-size: 1.5rem;
+  }
+
+  @include media(phone) {
+    font-size: 1.25rem;
+  }
+
+  &::before {
+    content: '';
+    opacity: 0.25;
+    margin: 0 auto;
+    position: absolute;
+    background: $color-white;
+    height: 0.0625rem;
+    width: 4.6875rem;
+    top: 3.75dvh;
+    right: 0;
+    left: 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  animation: fade-in $animation-duration-slow $animation-delay-buttons forwards;
+  margin: 10dvh auto 0;
+  column-gap: 3.5rem;
+  opacity: 0;
+
+  @include media(phone) {
+    margin-top: 10dvh;
+  }
+}
+
+.link {
+  @include glitchy-link;
+  font-size: 1.25rem;
+}

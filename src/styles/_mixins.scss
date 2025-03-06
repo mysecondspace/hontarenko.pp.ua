@@ -1,0 +1,131 @@
+@use './variables' as *;
+
+@mixin glitchy {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
+
+  &::before {
+    background-color: $cyan;
+    z-index: -1;
+  }
+
+  &::after {
+    background-color: $pink;
+    z-index: -2;
+  }
+}
+
+@mixin glitchy-content {
+  --gap-horizontal: 0.625rem;
+  --gap-vertical: 0.3125rem;
+  --glitch-height: 100dvh;
+  --glitch-width: 100dvw;
+  --delay-anim: 3.5s;
+  --time-anim: 4s;
+  --blend-mode-1: none;
+  --blend-mode-2: none;
+  --blend-mode-3: none;
+  --blend-mode-4: none;
+  --blend-color-1: transparent;
+  --blend-color-2: transparent;
+  --blend-color-3: transparent;
+  --blend-color-4: transparent;
+}
+
+@mixin glitchy-text {
+  @include glitchy-content;
+  animation: glitchy-text var(--time-anim) linear infinite;
+  animation-delay: calc(var(--delay-anim) + var(--time-anim) * 0.2);
+}
+
+@mixin glitchy-text-delayed {
+  @include glitchy-text;
+  animation-delay: calc(var(--delay-anim) + var(--time-anim) * 0.23);
+}
+
+@mixin glitchy-button {
+  &::before {
+    animation: glitchy 0.3s ease 0.3s infinite;
+  }
+
+  &::after {
+    animation: glitchy 0.3s ease infinite reverse;
+  }
+}
+
+@mixin glitchy-link {
+  @include glitchy;
+  text-transform: uppercase;
+  padding-bottom: 0.3125rem;
+  border-bottom: 0.0625rem solid rgb($color-white, 0.25);
+  letter-spacing: $letter-spacing;
+  font-family: $weight-bold;
+  color: $color-white;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    height: 0.0625rem;
+    bottom: -0.0625rem;
+    visibility: hidden;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      &::before {
+        visibility: visible;
+        animation: glitchy-line 0.3s ease 0.3s infinite;
+      }
+
+      &::after {
+        visibility: visible;
+        animation: glitchy-line 0.3s ease infinite reverse;
+      }
+    }
+  }
+}
+
+@mixin background-gradient($image-url) {
+  background:
+    radial-gradient(
+      rgba($color-primary, 0.3),
+      rgba($color-primary, 0.4),
+      rgba($color-primary, 0.4)
+    ),
+    url($image-url) no-repeat 50% 0 / cover;
+}
+
+@mixin media($media) {
+  @if $media == smallest {
+    @media only screen and (max-width: #{$smallest-viewport}) {
+      @content;
+    }
+  } @else if $media == phone {
+    @media only screen and (max-width: #{$phone-viewport}) {
+      @content;
+    }
+  } @else if $media == tablet-landscape {
+    @media only screen and (max-width: #{$tablet-landscape-viewport}) {
+      @content;
+    }
+  } @else if $media == tablet-portrait {
+    @media only screen and (max-width: #{$tablet-portrait-viewport}) {
+      @content;
+    }
+  } @else if $media == laptop {
+    @media only screen and (max-width: #{$laptop-viewport}) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media only screen and (max-width: #{$desktop-viewport}) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@use 'styles/index' as *;
+
+.form {
+  transition: opacity 0.5s ease-in-out;
+  align-items: center;
+  position: absolute;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  svg {
+    cursor: pointer;
+    right: $padding;
+    top: $padding;
+    width: 1.25rem;
+    position: absolute;
+  }
+
+  form {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 75%;
+
+    input,
+    button,
+    textarea {
+      width: 100%;
+      border-radius: 0;
+      font-size: 1.875rem;
+      border-bottom: 0.0625rem solid;
+      background: transparent;
+      color: $color-white;
+
+      @include media(phone) {
+        font-size: 1.25rem;
+      }
+    }
+
+    input {
+      margin-bottom: 7.5dvh;
+      font-family: $weight-light;
+    }
+
+    button {
+      margin-top: 7.5dvh;
+      width: fit-content;
+      @include glitchy-link;
+    }
+
+    textarea {
+      font-family: $weight-light;
+      padding-top: 22.5dvh;
+      overflow: hidden;
+      resize: none;
+    }
+  }
+
+  p {
+    font-size: 0.75rem;
+    color: $color-white;
+    position: absolute;
+    bottom: $padding;
+    left: $padding;
+
+    @media (hover: none) {
+      display: none;
+    }
+
+    strong {
+      font-family: $weight-bold;
+    }
+
+    span {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

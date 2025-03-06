@@ -1,0 +1,75 @@
+@use 'styles/index' as *;
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  animation: fade-in-up $animation-duration $animation-delay forwards;
+  z-index: 1;
+  opacity: 0;
+}
+
+.copyright {
+  cursor: default;
+  display: inline-flex;
+
+  span {
+    font-size: 0.5625rem;
+    writing-mode: vertical-lr;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+    font-family: $weight-semi-bold;
+    transform: rotate(180deg);
+    color: $color-white;
+  }
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+
+  @include media(phone) {
+    flex-direction: column-reverse;
+    row-gap: 0.625rem;
+  }
+
+  p {
+    opacity: 0.4;
+    font-size: 0.875rem;
+    color: $color-white;
+    font-family: $weight-light;
+    letter-spacing: $letter-spacing * 5;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include media(phone) {
+      text-align: right;
+      font-size: 1rem;
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    path {
+      fill: $color-white;
+    }
+  }
+}
+
+.icons {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 1dvw;
+
+  @include media(phone) {
+    column-gap: 6dvw;
+  }
+
+  a {
+    display: inline-flex;
+    cursor: pointer;
+  }
+}

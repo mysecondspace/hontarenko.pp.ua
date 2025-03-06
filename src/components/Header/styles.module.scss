@@ -1,0 +1,66 @@
+@use 'styles/index' as *;
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  animation: fade-in-down $animation-duration $animation-delay forwards;
+  z-index: 2;
+  opacity: 0;
+}
+
+.logo {
+  width: fit-content;
+  position: relative;
+
+  @include media(tablet-landscape) {
+    transform: translateY(25%);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      .surname,
+      .emoji span {
+        @include glitchy-text;
+      }
+
+      .surname {
+        animation-delay: 0s;
+      }
+
+      .emoji span {
+        animation-delay: 0.1s;
+      }
+    }
+  }
+}
+
+.surname {
+  color: $color-white;
+  font-family: $weight-regular;
+  display: inline-flex;
+  font-size: 2rem;
+
+  @include media(phone) {
+    font-size: 1.625rem;
+  }
+}
+
+.emoji {
+  right: 0;
+  top: -1.125rem;
+  font-size: 1.25rem;
+  animation: fade-in-down $animation-duration $animation-delay forwards;
+  position: absolute;
+  opacity: 0;
+
+  @include media(phone) {
+    top: -0.9375rem;
+    font-size: 0.875rem;
+  }
+}
+
+.button span {
+  color: rgba($color-primary, 0.6);
+  transition: color calc($animation-duration-slow + $animation-delay-fast);
+}

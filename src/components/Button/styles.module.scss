@@ -1,0 +1,41 @@
+@use 'styles/index' as *;
+
+.button {
+  @include glitchy;
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    bottom: 0;
+    top: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @include glitchy-button;
+    }
+  }
+}
+
+.text {
+  text-transform: uppercase;
+  padding: 0.6875em 0.9375em;
+  background-color: $color-white;
+  letter-spacing: $letter-spacing;
+  font-family: $weight-bold;
+  color: $color-primary;
+  font-size: 1.25rem;
+  height: 0.8125em;
+
+  @include media(tablet-portrait) {
+    font-size: 1rem;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      animation: glitchy 0.3s ease 1;
+    }
+  }
+}
