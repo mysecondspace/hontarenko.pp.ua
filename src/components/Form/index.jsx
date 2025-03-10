@@ -83,10 +83,10 @@ export const Form = ({ open, onCloseForm }) => {
       <CloseIcon onClick={closeForm} />
       <form
         name='contact'
+        method='POST'
         data-netlify='true'
         netlify-honeypot='bot-field'
-        method='POST'
-        netlify
+        onSubmit='submit'
       >
         <input type='hidden' name='form-name' value='contact' />
         <div className={styles.hidden}>
