@@ -81,7 +81,7 @@ export const Form = ({ open, onCloseForm }) => {
   return (
     <div className={clsx(styles.form, isVisible && styles.visible)}>
       <CloseIcon onClick={closeForm} />
-      <form name='contact' data-netlify='true'>
+      <form name='contact' data-netlify='true' method='POST'>
         <InputField name='name' defaultValue='who are you?' />
         <InputField name='email' defaultValue='your e-mail' type='email' />
         <TextareaField name='message' defaultValue='thoughts?' />
