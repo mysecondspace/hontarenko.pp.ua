@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import clsx from 'clsx'
 
-import { ROUTES } from 'routes'
-
 import { ReactComponent as CloseIcon } from 'assets/close.svg'
 
 import styles from './styles.module.scss'
@@ -87,8 +85,8 @@ export const Form = ({ open, onCloseForm }) => {
         name='contact'
         data-netlify='true'
         netlify-honeypot='bot-field'
-        action={ROUTES.HOME}
         method='POST'
+        netlify
       >
         <input type='hidden' name='form-name' value='contact' />
         <div className={styles.hidden}>
