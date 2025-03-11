@@ -17,7 +17,7 @@ const useDefaultValueHandlers = (defaultValue) => {
   return { handleBlur, handleFocus }
 }
 
-const InputField = ({ name, defaultValue, type = 'text' }) => {
+const InputField = ({ defaultValue, name, type = 'text' }) => {
   const { handleBlur, handleFocus } = useDefaultValueHandlers(defaultValue)
 
   return (
@@ -32,7 +32,7 @@ const InputField = ({ name, defaultValue, type = 'text' }) => {
   )
 }
 
-const TextareaField = ({ name, defaultValue }) => {
+const TextareaField = ({ defaultValue, name }) => {
   const { handleBlur, handleFocus } = useDefaultValueHandlers(defaultValue)
 
   return (
@@ -83,9 +83,9 @@ export const Form = ({ open, onCloseForm }) => {
       <CloseIcon onClick={closeForm} />
       <form name='contact' method='post'>
         <input type='hidden' name='form-name' value='contact' />
-        <InputField name='name' defaultValue='who are you?' />
-        <InputField name='email' defaultValue='your e-mail' type='email' />
-        <TextareaField name='message' defaultValue='thoughts?' />
+        <InputField defaultValue='who are you?' name='name' />
+        <InputField defaultValue='your e-mail' name='email' type='email' />
+        <TextareaField defaultValue='thoughts?' name='message' />
         <button type='submit'>Say hello</button>
       </form>
       <p>
