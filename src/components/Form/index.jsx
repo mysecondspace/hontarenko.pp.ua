@@ -81,17 +81,8 @@ export const Form = ({ open, onCloseForm }) => {
   return (
     <div className={clsx(styles.form, isVisible && styles.visible)}>
       <CloseIcon onClick={closeForm} />
-      <form
-        name='contact'
-        method='POST'
-        data-netlify='true'
-        netlify-honeypot='bot-field'
-        onSubmit='submit'
-      >
+      <form name='contact' method='post'>
         <input type='hidden' name='form-name' value='contact' />
-        <div className={styles.hidden}>
-          <input name='bot-field' />
-        </div>
         <InputField name='name' defaultValue='who are you?' />
         <InputField name='email' defaultValue='your e-mail' type='email' />
         <TextareaField name='message' defaultValue='thoughts?' />
